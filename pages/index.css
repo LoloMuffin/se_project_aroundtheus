@@ -57,7 +57,6 @@
 .profile {
   margin-top: 40px;
   max-width: 880px;
-  height: 120px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -82,7 +81,7 @@
 
 .profile__name {
   margin: 22px 0 0;
-  width: 373px;
+  width: 375px;
   font-family: Inter;
   font-size: 42px;
   font-style: normal;
@@ -103,6 +102,13 @@
   grid-area: description;
 }
 
+.profile__name,
+.profile__description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .profile__edit {
   margin: 37px 0 0 18px;
   padding: 0;
@@ -114,7 +120,7 @@
 }
 
 .profile__add {
-  margin: 37px 0 0 165px;
+  margin: 37px 0 0 163px;
   padding: 0;
   width: 150px;
   height: 50px;
