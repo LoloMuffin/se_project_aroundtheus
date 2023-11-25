@@ -12,3 +12,23 @@
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
 }
+
+@media screen and (max-width: 320px) {
+  .location {
+    margin-top: 36px;
+  }
+
+  .location__cards {
+    grid-gap: 20px 19px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 580px) {
+  .location {
+    margin-top: 36px;
+  }
+
+  .location__cards {
+    grid-gap: 20px 19px;
+  }
+}
