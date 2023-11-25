@@ -1,0 +1,72 @@
+.profile {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.profile__avatar {
+  margin-right: 30px;
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "name edit add"
+    "description description description";
+  grid-auto-columns: minmax(auto, 375px) auto auto;
+}
+
+.profile__name {
+  margin: 0;
+  padding: 0 0 7px 0;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.14;
+  grid-area: name;
+}
+
+.profile__edit {
+  margin-left: 18px;
+  width: 24px;
+  height: 24px;
+  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  grid-area: edit;
+  align-self: center;
+  border: solid 1px #fff;
+}
+
+.profile__description {
+  padding: 0 0 21px 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.21;
+  grid-area: description;
+}
+
+.profile__name,
+.profile__description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile__add {
+  margin: auto 0 auto auto;
+  padding: 0;
+  width: 150px;
+  height: 50px;
+  background: transparent url(../images/add-icon.svg) center no-repeat;
+  grid-area: add;
+  border: solid 2px #fff;
+}
+
+.profile__edit:hover,
+.profile__add:hover {
+  opacity: 0.6;
+}
