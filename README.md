@@ -20,7 +20,22 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 Good luck and have fun!
 
+## Project features
+
+- Semantic HTML5
+- Flat BEM file structure
+- Like buttons
+- CSS Grid Layout
+- Flexbox
+- Positioning
+- Hidden overflows
+- Github deployment
+
 ## Plan on improving the project
 
 - Learn Javascript to further improve website
 - Add additional dimensions for even smoother transitions
+
+# Project deployment
+
+https://lolomuffin.github.io/se_project_aroundtheus/
