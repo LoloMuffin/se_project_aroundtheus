@@ -1,0 +1,144 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+}
+
+/* .modal_open {
+    display: flex;
+} */
+
+.modal__container {
+  padding: 34px 36px 36px;
+  margin: auto;
+  max-width: 430px;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+}
+
+.modal__close {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background: transparent url(../images/close-icon.svg) center no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  fill: #fff;
+  border: none;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.modal__heading {
+  margin: 0 0 54px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.21;
+  color: #000;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.modal__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal__save {
+  padding: 0;
+  margin-top: 18px;
+  height: 50px;
+  background-color: #000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.21;
+  color: #fff;
+  text-align: center;
+  border: none;
+}
+
+.modal__save:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  .modal {
+    padding: 0 19px;
+  }
+
+  .modal__container {
+    padding: 25px 22px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 14px);
+    left: calc(90%);
+  }
+
+  .modal__heading {
+    font-size: 18px;
+    margin: 0 0 75px;
+  }
+
+  .modal__save {
+    margin-top: 15px;
+    height: 46px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 580px) {
+  .modal {
+    padding: 0 19px;
+  }
+
+  .modal__container {
+    padding: 25px 22px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 14px);
+    left: calc(95%);
+  }
+
+  .modal__heading {
+    font-size: 18px;
+    margin: 0 0 75px;
+  }
+
+  .modal__save {
+    margin-top: 15px;
+    height: 46px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 581px) and (max-width: 620px) {
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 14px);
+    left: calc(95%);
+  }
+}
