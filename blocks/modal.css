@@ -6,13 +6,12 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-  display: flex;
-  /* display: none; */
+  display: none;
 }
 
-/* .modal_open {
-    display: flex;
-} */
+.modal_opened {
+  display: flex;
+}
 
 .modal__container {
   padding: 34px 36px 36px;
@@ -57,6 +56,11 @@
 }
 
 .modal__input {
+  padding: 0 0 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.21;
+  color: #000;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
