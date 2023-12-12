@@ -40,104 +40,14 @@
           <button type="button" aria-label="Add" class="profile__add"></button>
         </section>
         <section class="location page__section">
-          <ul class="location__cards">
-            <li class="card">
-              <img
-                src="./images/yosemite-valley.png"
-                alt="Yosemite Valley image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Yosemite Valley</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.png"
-                alt="Lake Louise image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Lake Louise</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.png"
-                alt="Bald Mountains image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Bald Mountains</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.png"
-                alt="Latemar image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Latemar</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise-national-park.png"
-                alt="Vanoise National Park image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Vanoise National Park</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago-di-braies.png"
-                alt="Lago di Braies image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__text">Lago di Braies</h2>
-                <button
-                  type="button"
-                  aria-label="Like"
-                  class="card__like"
-                ></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="location__cards"></ul>
         </section>
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">&#169; 2023 Around The U.S.</p>
       </footer>
     </div>
+
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-modal-close"></button>
@@ -146,12 +56,14 @@
           <input
             type="text"
             class="modal__input"
+            id="profile-name-input"
             name="name"
             placeholder="Name"
           />
           <input
             type="text"
             class="modal__input"
+            id="profile-description-input"
             name="description"
             placeholder="Description"
           />
@@ -159,6 +71,17 @@
         </form>
       </div>
     </div>
+
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__description">
+          <h2 class="card__text"></h2>
+          <button type="button" aria-label="Like" class="card__like"></button>
+        </div>
+      </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>

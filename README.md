@@ -29,12 +29,16 @@ Good luck and have fun!
 - Flexbox
 - Positioning
 - Hidden overflows
+- Javascript
+- Modals
+- Templates
+- DOM
 - Github deployment
 
 ## Plan on improving the project
 
-- Learn Javascript to further improve website
-- Add additional dimensions for even smoother transitions
+- Learn more Javascript to further improve website
+-
 
 # Project deployment
 
