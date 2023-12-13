@@ -38,7 +38,6 @@ Good luck and have fun!
 ## Plan on improving the project
 
 - Learn more Javascript to further improve website
--
 
 # Project deployment
 
