@@ -65,6 +65,11 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData, locationCards);
+  locationCards.prepend(cardElement);
+}
+
 function activateLikeButton() {
   const likeButtons = document.querySelectorAll(".card__like");
   likeButtons.forEach((likeButton) => {
@@ -72,11 +77,6 @@ function activateLikeButton() {
       likeButton.classList.toggle("card__like_active");
     });
   });
-}
-
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData, locationCards);
-  locationCards.prepend(cardElement);
 }
 
 function submitProfileEdit(e) {
@@ -91,7 +91,6 @@ function submitCardAdd(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, locationCards);
-  activateLikeButton();
   closeModal(cardAddModal);
 }
 
@@ -111,4 +110,5 @@ cardForm.addEventListener("submit", submitCardAdd);
 initialCards
   .reverse()
   .forEach((cardData) => renderCard(cardData, locationCards));
+
 activateLikeButton();
