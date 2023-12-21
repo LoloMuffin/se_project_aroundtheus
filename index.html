@@ -37,7 +37,12 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button type="button" aria-label="Add" class="profile__add"></button>
+          <button
+            type="button"
+            aria-label="Add"
+            class="profile__add"
+            id="card-add"
+          ></button>
         </section>
         <section class="location page__section">
           <ul class="location__cards"></ul>
@@ -50,7 +55,12 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-modal-close"></button>
+        <button
+          type="button"
+          aria-label="Close"
+          class="modal__close"
+          id="profile-modal-close"
+        ></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" name="profile-form">
           <input
@@ -67,7 +77,40 @@
             name="description"
             placeholder="Description"
           />
-          <button class="modal__save">Save</button>
+          <button type="submit" aria-label="Save" class="modal__save">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="card-add-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          aria-label="Close"
+          class="modal__close"
+          id="card-modal-close"
+        ></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" name="card-form">
+          <input
+            type="text"
+            class="modal__input"
+            id="card-title-input"
+            name="title"
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            class="modal__input"
+            id="card-url-input"
+            name="url"
+            placeholder="Image URL"
+          />
+          <button type="submit" aria-label="Create" class="modal__create">
+            Create
+          </button>
         </form>
       </div>
     </div>

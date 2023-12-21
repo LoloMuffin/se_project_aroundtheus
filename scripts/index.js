@@ -36,13 +36,24 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileForm = document.forms["profile-form"];
+const cardAdd = document.querySelector("#card-add");
+const cardAddModal = document.querySelector("#card-add-modal");
+const cardModalClose = document.querySelector("#card-modal-close");
+const cardTitle = document.querySelector(".card__text");
+const cardTitleInput = document.querySelector("#card-title-input");
+const cardForm = document.forms["card-form"];
 const locationCards = document.querySelector(".location__cards");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 
 //Functions
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function openModal(modalElement) {
+  modalElement.classList.add("modal_opened");
+}
+
+function closeModal(modalElement) {
+  modalElement.classList.remove("modal_opened");
 }
 
 function getCardElement(data) {
@@ -55,26 +66,37 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function renderCard(cardData, locationCards) {
+  const cardElement = getCardElement(cardData);
+  locationCards.append(cardElement);
+}
+
 //Event Handlers
 function submitProfileEdit(e) {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closeModal(profileEditModal);
 }
 
 //Event Listeners
 profileEdit.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openModal(profileEditModal);
 });
 
-profileModalClose.addEventListener("click", closePopup);
-
+profileModalClose.addEventListener("click", () => closeModal(profileEditModal));
 profileForm.addEventListener("submit", submitProfileEdit);
 
-initialCards.forEach((data) => {
-  const cardElement = getCardElement(data);
-  locationCards.append(cardElement);
+cardAdd.addEventListener("click", () => openModal(cardAddModal));
+cardModalClose.addEventListener("click", () => closeModal(cardAddModal));
+
+initialCards.forEach((cardData) => renderCard(cardData, locationCards));
+
+const likeButtons = document.querySelectorAll(".card__like");
+likeButtons.forEach((likeButton) => {
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like_active");
+  });
 });

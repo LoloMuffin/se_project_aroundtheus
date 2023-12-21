@@ -65,7 +65,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.modal__save {
+.modal__save,
+.modal__create {
   padding: 0;
   margin-top: 18px;
   height: 50px;
@@ -78,7 +79,8 @@
   border: none;
 }
 
-.modal__save:hover {
+.modal__save:hover,
+.modal__create:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -104,7 +106,8 @@
     margin: 0 0 75px;
   }
 
-  .modal__save {
+  .modal__save,
+  .modal__create {
     margin-top: 15px;
     height: 46px;
     font-size: 14px;
@@ -132,7 +135,8 @@
     margin: 0 0 75px;
   }
 
-  .modal__save {
+  .modal__save,
+  .modal__create {
     margin-top: 15px;
     height: 46px;
     font-size: 14px;
