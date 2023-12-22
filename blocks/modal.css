@@ -117,12 +117,8 @@
 }
 
 @media screen and (max-width: 320px) {
-  .modal {
-    padding: 0 19px;
-  }
-
   .modal__container {
-    padding: 25px 22px;
+    /* padding: 25px 22px; */
     max-width: 282px;
     width: 100%;
   }
@@ -153,12 +149,8 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 580px) {
-  .modal {
-    padding: 0 19px;
-  }
-
   .modal__container {
-    padding: 25px 22px;
+    /* padding: 25px 22px; */
     max-width: 282px;
     width: 100%;
   }
