@@ -1,4 +1,6 @@
 .modal {
+  padding: 0;
+  margin: 0;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -10,6 +12,8 @@
 }
 
 .modal_opened {
+  padding: 0;
+  margin: 0;
   display: flex;
 }
 
@@ -23,7 +27,13 @@
   border-radius: 10px;
 }
 
-.modal__close {
+.modal__image-container {
+  margin: auto;
+  position: relative;
+}
+
+.modal__close,
+.modal__image-close {
   padding: 0;
   width: 40px;
   height: 40px;
@@ -36,7 +46,8 @@
   border: none;
 }
 
-.modal__close:hover {
+.modal__close:hover,
+.modal__image-close:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -85,6 +96,26 @@
   cursor: pointer;
 }
 
+.modal__image {
+  padding: 0;
+  margin: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__image-text {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.21;
+  color: #fff;
+  white-space: nowrap;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+}
+
 @media screen and (max-width: 320px) {
   .modal {
     padding: 0 19px;
@@ -92,6 +123,8 @@
 
   .modal__container {
     padding: 25px 22px;
+    max-width: 282px;
+    width: 100%;
   }
 
   .modal__close {
@@ -99,6 +132,11 @@
     height: 26px;
     bottom: calc(100% + 14px);
     left: calc(90%);
+  }
+
+  .modal__image-close {
+    width: 30px;
+    height: 30px;
   }
 
   .modal__heading {
@@ -121,6 +159,8 @@
 
   .modal__container {
     padding: 25px 22px;
+    max-width: 282px;
+    width: 100%;
   }
 
   .modal__close {
@@ -128,6 +168,11 @@
     height: 26px;
     bottom: calc(100% + 14px);
     left: calc(95%);
+  }
+
+  .modal__image-close {
+    width: 30px;
+    height: 30px;
   }
 
   .modal__heading {
@@ -149,5 +194,10 @@
     height: 26px;
     bottom: calc(100% + 14px);
     left: calc(95%);
+  }
+
+  .modal__image-close {
+    width: 30px;
+    height: 30px;
   }
 }
