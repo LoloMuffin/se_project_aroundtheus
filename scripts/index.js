@@ -119,7 +119,7 @@ function submitCardAdd(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  renderCard({ name, link }, locationCards);
+  name && link && renderCard({ name, link }, locationCards);
   closeModal(cardAddModal);
   cardTitleInput.value = "";
   cardUrlInput.value = "";

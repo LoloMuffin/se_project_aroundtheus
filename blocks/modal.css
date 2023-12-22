@@ -8,13 +8,16 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-  display: none;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .modal_opened {
-  padding: 0;
-  margin: 0;
   display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modal__container {
@@ -117,10 +120,14 @@
 }
 
 @media screen and (max-width: 320px) {
+  .modal {
+    padding: 0 19px;
+  }
+
   .modal__container {
-    /* padding: 25px 22px; */
+    padding: 25px 22px;
     max-width: 282px;
-    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal__close {
@@ -149,10 +156,14 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 580px) {
+  .modal {
+    padding: 0 19px;
+  }
+
   .modal__container {
-    /* padding: 25px 22px; */
+    padding: 25px 22px;
     max-width: 282px;
-    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal__close {
