@@ -54,12 +54,11 @@
     </div>
 
     <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container_resize">
         <button
           type="button"
           aria-label="Close"
-          class="modal__close"
-          id="profile-modal-close"
+          class="modal__close modal__close_button-resize"
         ></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" name="profile-form">
@@ -85,12 +84,11 @@
     </div>
 
     <div class="modal" id="card-add-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container_resize">
         <button
           type="button"
           aria-label="Close"
-          class="modal__close"
-          id="card-modal-close"
+          class="modal__close modal__close_button-resize"
         ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" name="card-form">
@@ -98,7 +96,7 @@
             type="text"
             class="modal__input"
             id="card-title-input"
-            name="title"
+            name="location"
             placeholder="Title"
           />
           <input
@@ -108,7 +106,7 @@
             name="url"
             placeholder="Image URL"
           />
-          <button type="submit" aria-label="Create" class="modal__create">
+          <button type="submit" aria-label="Create" class="modal__save">
             Create
           </button>
         </form>
@@ -116,14 +114,13 @@
     </div>
 
     <div class="modal" id="full-image-modal">
-      <div class="modal__image-container">
+      <div class="modal__container">
         <button
           type="button"
           aria-label="Close"
-          class="modal__image-close"
-          id="image-modal-close"
+          class="modal__close modal__close_img-btn-resize"
         ></button>
-        <img src="url" alt="" class="modal__image" />
+        <img src="#" alt="" class="modal__image" />
         <p class="modal__image-text">Card Title</p>
       </div>
     </div>
@@ -131,7 +128,7 @@
     <template id="card-template">
       <li class="card">
         <button type="button" aria-label="Delete" class="card__delete"></button>
-        <img src="url" alt="" class="card__image" />
+        <img src="#" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__text">Card Title</h2>
           <button type="button" aria-label="Like" class="card__like"></button>
