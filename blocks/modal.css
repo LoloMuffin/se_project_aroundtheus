@@ -143,10 +143,10 @@
   }
 
   .modal__close_img-btn-resize {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     bottom: calc(100% + 4px);
-    left: calc(99%);
+    left: calc(100%);
   }
 
   .modal__heading {
