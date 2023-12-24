@@ -106,28 +106,22 @@ function submitProfileEdit(e) {
   e.preventDefault();
   const newName = profileNameInput.value.trim();
   const newDescription = profileDescriptionInput.value.trim();
-  const actions = newName &&
-    newDescription && [
-      () => {
-        profileName.textContent = newName;
-        profileDescription.textContent = newDescription;
-        closeModal(profileEditModal);
-      },
-    ];
-  actions && actions.forEach((action) => action());
+  if (newName && newDescription) {
+    profileName.textContent = newName;
+    profileDescription.textContent = newDescription;
+    closeModal(profileEditModal);
+  }
 }
 
 function submitCardAdd(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const actions = name &&
-    link && [
-      () => renderCard({ name, link }),
-      () => closeModal(cardAddModal),
-      () => e.target.reset(),
-    ];
-  actions && actions.forEach((action) => action());
+  if (name && link) {
+    renderCard({ name, link });
+    closeModal(cardAddModal);
+    e.target.reset();
+  }
 }
 
 closeButtons.forEach((button) => {
