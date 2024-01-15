@@ -62,20 +62,32 @@
         ></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" name="profile-form">
-          <input
-            type="text"
-            class="modal__input"
-            id="profile-name-input"
-            name="name"
-            placeholder="Name"
-          />
-          <input
-            type="text"
-            class="modal__input"
-            id="profile-description-input"
-            name="description"
-            placeholder="Description"
-          />
+          <label for="modal" class="modal__label"
+            ><input
+              type="text"
+              class="modal__input"
+              id="profile-name-input"
+              name="name"
+              placeholder="Name"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="modal__error" id="profile-name-error"></span>
+          </label>
+          <label for="modal" class="modal__label"
+            ><input
+              type="text"
+              class="modal__input"
+              id="profile-description-input"
+              name="description"
+              placeholder="Description"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="modal__error" id="profile-desc-error"></span>
+          </label>
           <button type="submit" aria-label="Save" class="modal__save">
             Save
           </button>
@@ -92,20 +104,30 @@
         ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" name="card-form">
-          <input
-            type="text"
-            class="modal__input"
-            id="card-title-input"
-            name="location"
-            placeholder="Title"
-          />
-          <input
-            type="text"
-            class="modal__input"
-            id="card-url-input"
-            name="url"
-            placeholder="Image URL"
-          />
+          <label for="modal" class="modal__label" required>
+            <input
+              type="text"
+              class="modal__input"
+              id="card-title-input"
+              name="location"
+              placeholder="Title"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="modal__error" id="card-title-error"></span>
+          </label>
+          <label for="modal" class="modal__label">
+            <input
+              type="url"
+              class="modal__input"
+              id="card-url-input"
+              name="url"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="card-url-error"></span>
+          </label>
           <button type="submit" aria-label="Create" class="modal__save">
             Create
           </button>
@@ -136,6 +158,7 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validation.js"></script>
   </body>
 </html>
