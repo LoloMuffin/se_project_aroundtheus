@@ -61,9 +61,9 @@
           class="modal__close modal__close_button-resize"
         ></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form" name="profile-form">
-          <label for="modal" class="modal__label"
-            ><input
+        <form class="modal__form" name="profile-form" novalidate>
+          <label for="profile-description-input" class="modal__label">
+            <input
               type="text"
               class="modal__input"
               id="profile-name-input"
@@ -72,11 +72,12 @@
               minlength="2"
               maxlength="40"
               required
+              autocomplete="name"
             />
-            <span class="modal__error" id="profile-name-error"></span>
+            <span class="modal__error" id="profile-name-input-error"></span>
           </label>
-          <label for="modal" class="modal__label"
-            ><input
+          <label for="profile-description-input" class="modal__label">
+            <input
               type="text"
               class="modal__input"
               id="profile-description-input"
@@ -85,10 +86,19 @@
               minlength="2"
               maxlength="200"
               required
+              autocomplete="on"
             />
-            <span class="modal__error" id="profile-desc-error"></span>
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
           </label>
-          <button type="submit" aria-label="Save" class="modal__save">
+          <button
+            type="submit"
+            aria-label="Save"
+            class="modal__save"
+            id="modal-profile-save"
+          >
             Save
           </button>
         </form>
@@ -103,8 +113,8 @@
           class="modal__close modal__close_button-resize"
         ></button>
         <p class="modal__heading">New Place</p>
-        <form class="modal__form" name="card-form">
-          <label for="modal" class="modal__label" required>
+        <form class="modal__form" name="card-form" novalidate>
+          <label for="card-title-input" class="modal__label">
             <input
               type="text"
               class="modal__input"
@@ -114,10 +124,11 @@
               minlength="2"
               maxlength="30"
               required
+              autocomplete="on"
             />
-            <span class="modal__error" id="card-title-error"></span>
+            <span class="modal__error" id="card-title-input-error"></span>
           </label>
-          <label for="modal" class="modal__label">
+          <label for="card-url-input" class="modal__label">
             <input
               type="url"
               class="modal__input"
@@ -125,10 +136,17 @@
               name="url"
               placeholder="Image URL"
               required
+              autocomplete="url"
             />
-            <span class="modal__error" id="card-url-error"></span>
+            <span class="modal__error" id="card-url-input-error"></span>
           </label>
-          <button type="submit" aria-label="Create" class="modal__save">
+          <button
+            type="submit"
+            aria-label="Create"
+            class="modal__save modal__save_disabled"
+            id="modal-card-save"
+            disabled
+          >
             Create
           </button>
         </form>
