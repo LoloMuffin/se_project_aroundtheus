@@ -1,26 +1,25 @@
-# Project 3: Around The U.S.
+# Project 6: Around The U.S.
 
 ### Overview
 
 - Intro
 - Figma
 - Images
+- Javascript
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+In this project, validation ensures that when users submit forms, the data is correct and reliable. It's an important step for making sure everything works smoothly.
 
 **Figma**
 
-- [Link to the project on Figma](<https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=1%3A174&mode=design&t=ZdU1p4DzRiKwv23E-1>)
+- [Link to the project on Figma](https://www.figma.com/file/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?type=design&node-id=0-3&mode=design&t=5Sgh8JhM81o038fX-0)
 
 **Images**
 
-![Around the US](images/sprint-5-project-1.png)
-![Around the US](images/sprint-5-project-2.png)
-![Around the US](images/sprint-5-project-3.png)
-![Around the US](images/sprint-5-project-4.png)
-![Around the US](images/sprint-5-project-5.png)
+![Around the US](images/sprint-6-project-1.png)
+![Around the US](images/sprint-6-project-2.png)
+![Around the US](images/sprint-6-project-3.png)
 
 ## Project features
 
@@ -39,6 +38,7 @@ This project is made so all the elements are displayed correctly on popular scre
 - "Like" buttons
 - Cloning templates
 - "Delete" functionality
+- Form validation
 
 ## Plan on improving the project
 
