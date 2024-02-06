@@ -1,8 +1,8 @@
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save",
-  inactiveButtonClass: "modal__save_disabled",
+  submitButtonSelector: ".modal__submit",
+  inactiveButtonClass: "modal__submit_disabled",
   inputErrorClass: "modal__input_error",
   errorClass: "modal__error_visible",
 };
@@ -62,7 +62,7 @@ function switchSubmitButtonState(
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  const submitButton = formElement.querySelector(".modal__save");
+  const submitButton = formElement.querySelector(".modal__submit");
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, options);
@@ -81,22 +81,4 @@ function enableValidation(options) {
   });
 }
 
-function resetValidation(formElement, options) {
-  formElement.reset();
-  const { inputSelector, errorClass, inputErrorClass } = options;
-  const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  inputElements.forEach((inputElement) => {
-    const errorMessageElement = formElement.querySelector(
-      `#${inputElement.id}-error`
-    );
-    inputElement.classList.remove(inputErrorClass);
-    errorMessageElement.textContent = "";
-    errorMessageElement.classList.remove(errorClass);
-  });
-  const submitButton = formElement.querySelector(options.submitButtonSelector);
-  submitButton.classList.remove(options.inactiveButtonClass);
-  submitButton.disabled = false;
-}
-
 enableValidation(config);
-resetValidation(config);

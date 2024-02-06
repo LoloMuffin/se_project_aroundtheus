@@ -110,7 +110,7 @@
   opacity: 1;
 }
 
-.modal__save {
+.modal__submit {
   padding: 0;
   margin-top: 18px;
   height: 50px;
@@ -123,24 +123,22 @@
   border: none;
 }
 
-.modal__save_disabled {
-  padding: 0;
-  margin-top: 18px;
-  height: 50px;
+.modal__submit_disabled {
   background-color: #f6f6f6;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.21;
   color: #000;
   text-align: center;
   border: 1px solid #000;
   opacity: 0.2;
-  cursor: not-allowed;
+  pointer-events: none;
 }
 
-.modal__save:hover {
+.modal__submit:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__submit_disabled:hover {
+  cursor: not-allowed !important;
 }
 
 .modal__image {
@@ -193,7 +191,7 @@
     margin: 0 0 75px;
   }
 
-  .modal__save {
+  .modal__submit {
     margin-top: 15px;
     height: 46px;
     font-size: 14px;
@@ -230,7 +228,7 @@
     margin: 0 0 75px;
   }
 
-  .modal__save {
+  .modal__submit {
     margin-top: 15px;
     height: 46px;
     font-size: 14px;
