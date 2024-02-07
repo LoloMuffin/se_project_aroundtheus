@@ -2,22 +2,24 @@
   padding: 0;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 999;
-  display: flex;
+  visibility: none;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__container {
@@ -135,10 +137,6 @@
 .modal__submit:hover {
   opacity: 0.8;
   cursor: pointer;
-}
-
-.modal__submit_disabled:hover {
-  cursor: not-allowed !important;
 }
 
 .modal__image {

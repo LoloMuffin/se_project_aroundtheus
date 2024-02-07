@@ -35,16 +35,27 @@ function hideInputError(
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    return showInputError(formElement, inputElement, options);
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
   }
-  hideInputError(formElement, inputElement, options);
+}
+
+function checkFormValidity(inputs) {
+  return inputs.every((input) => input.validity.valid);
 }
 
 function switchSubmitButtonState(
   inputElements,
   submitButton,
-  { inactiveButtonClass }
+  { inactiveButtonClass },
+  reset = false
 ) {
+  if (reset) {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+    return;
+  }
   let foundInvalid = false;
   inputElements.forEach((inputElement) => {
     if (!inputElement.validity.valid) {
@@ -53,16 +64,17 @@ function switchSubmitButtonState(
   });
   if (foundInvalid) {
     submitButton.classList.add(inactiveButtonClass);
-    return (submitButton.disabled = true);
+    submitButton.disabled = true;
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListeners(formElement, options) {
-  const { inputSelector } = options;
+  const { inputSelector, submitButtonSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  const submitButton = formElement.querySelector(".modal__submit");
+  const submitButton = formElement.querySelector(submitButtonSelector);
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, options);
@@ -79,6 +91,21 @@ function enableValidation(options) {
     });
     setEventListeners(formElement, options);
   });
+}
+
+function resetValidation(formElement, options) {
+  const { inputErrorClass, errorClass } = options;
+  formElement.reset();
+  const inputElements = [
+    ...formElement.querySelectorAll(options.inputSelector),
+  ];
+  inputElements.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, { inputErrorClass, errorClass });
+  });
+  const submitButton = formElement.querySelector(options.submitButtonSelector);
+  if (submitButton) {
+    switchSubmitButtonState(inputElements, submitButton, options, true);
+  }
 }
 
 enableValidation(config);
