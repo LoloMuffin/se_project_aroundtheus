@@ -140,53 +140,19 @@ profileForm.addEventListener("submit", submitProfileEdit);
 profileEditModal
   .querySelector(".modal__close")
   .addEventListener("click", () => {
-    const formElement = profileEditModal.querySelector(".modal__form");
-    if (formElement) {
-      resetValidation(formElement, config);
-    }
     closeModal(profileEditModal);
   });
 
-profileEditModal.addEventListener("mousedown", (e) => {
-  if (e.target === e.currentTarget) {
-    closeModal(profileEditModal);
-    resetValidation(profileEditModal.querySelector(".modal__form"), config);
-  }
-});
-
-profileEditModal.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeModal(profileEditModal);
-    resetValidation(profileEditModal.querySelector(".modal__form"), config);
-  }
-});
-
 cardAdd.addEventListener("click", () => {
+  const formElement = cardAddModal.querySelector(".modal__form");
+  formElement.reset();
   openModal(cardAddModal);
 });
 
 cardForm.addEventListener("submit", submitCardAdd);
 
 cardAddModal.querySelector(".modal__close").addEventListener("click", () => {
-  const formElement = cardAddModal.querySelector(".modal__form");
-  if (formElement) {
-    resetValidation(formElement, config);
-  }
   closeModal(cardAddModal);
-});
-
-cardAddModal.addEventListener("mousedown", (e) => {
-  if (e.target === e.currentTarget) {
-    closeModal(cardAddModal);
-    resetValidation(cardAddModal.querySelector(".modal__form"), config);
-  }
-});
-
-cardAddModal.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeModal(cardAddModal);
-    resetValidation(cardAddModal.querySelector(".modal__form"), config);
-  }
 });
 
 initialCards.reverse().forEach((cardData) => renderCard(cardData));

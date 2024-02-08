@@ -17,8 +17,7 @@ const switchSubmitButtonState = (
 ) => {
   const formValid = checkFormValidity(inputElements);
   if (formValid) {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
+    disableSubmitButton(submitButton, inactiveButtonClass);
   } else {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
@@ -83,7 +82,6 @@ function enableValidation(options) {
 
 function resetValidation(formElement, options) {
   const { inputErrorClass, errorClass, inactiveButtonClass } = options;
-  formElement.reset();
   const inputElements = [
     ...formElement.querySelectorAll(options.inputSelector),
   ];
@@ -91,10 +89,10 @@ function resetValidation(formElement, options) {
     hideInputError(formElement, inputElement, { inputErrorClass, errorClass });
   });
   const submitButton = formElement.querySelector(options.submitButtonSelector);
-  resetSubmitButtonVisualState(submitButton, inactiveButtonClass);
+  disableSubmitButton(submitButton, inactiveButtonClass);
 }
 
-function resetSubmitButtonVisualState(submitButton, inactiveButtonClass) {
+function disableSubmitButton(submitButton, inactiveButtonClass) {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }

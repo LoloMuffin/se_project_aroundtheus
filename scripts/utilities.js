@@ -2,6 +2,10 @@ function openModal(modalElement) {
   modalElement.addEventListener("mousedown", closeModalOnRemoteClick);
   document.addEventListener("keydown", closeModalByEsc);
   modalElement.classList.add("modal_opened");
+  const formElement = modalElement.querySelector(".modal__form");
+  if (formElement) {
+    resetValidation(formElement, config);
+  }
 }
 
 function closeModal(modalElement) {
@@ -22,6 +26,7 @@ function closeModalOnRemoteClick(e) {
     e.target === e.currentTarget ||
     e.target.classList.contains("modal__close")
   ) {
-    closeModal(fullImageModal);
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
   }
 }
