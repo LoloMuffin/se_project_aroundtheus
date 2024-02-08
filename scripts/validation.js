@@ -91,10 +91,7 @@ function resetValidation(formElement, options) {
     hideInputError(formElement, inputElement, { inputErrorClass, errorClass });
   });
   const submitButton = formElement.querySelector(options.submitButtonSelector);
-  if (submitButton) {
-    resetSubmitButtonVisualState(submitButton, inactiveButtonClass);
-    submitButton.offsetWidth; //everything I tried wouldn't reset the button without this
-  }
+  resetSubmitButtonVisualState(submitButton, inactiveButtonClass);
 }
 
 function resetSubmitButtonVisualState(submitButton, inactiveButtonClass) {
