@@ -7,6 +7,24 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
+const checkFormValidity = (inputElements) =>
+  inputElements.every((input) => input.validity.valid);
+
+const switchSubmitButtonState = (
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }
+) => {
+  const formValid = checkFormValidity(inputElements);
+  if (formValid) {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+  } else {
+    submitButton.classList.add(inactiveButtonClass);
+    submitButton.disabled = true;
+  }
+};
+
 function showInputError(
   formElement,
   inputElement,
@@ -41,36 +59,6 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
-function checkFormValidity(inputs) {
-  return inputs.every((input) => input.validity.valid);
-}
-
-function switchSubmitButtonState(
-  inputElements,
-  submitButton,
-  { inactiveButtonClass },
-  reset = false
-) {
-  if (reset) {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
-    return;
-  }
-  let foundInvalid = false;
-  inputElements.forEach((inputElement) => {
-    if (!inputElement.validity.valid) {
-      foundInvalid = true;
-    }
-  });
-  if (foundInvalid) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-  } else {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
-  }
-}
-
 function setEventListeners(formElement, options) {
   const { inputSelector, submitButtonSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
@@ -94,7 +82,7 @@ function enableValidation(options) {
 }
 
 function resetValidation(formElement, options) {
-  const { inputErrorClass, errorClass } = options;
+  const { inputErrorClass, errorClass, inactiveButtonClass } = options;
   formElement.reset();
   const inputElements = [
     ...formElement.querySelectorAll(options.inputSelector),
@@ -104,8 +92,14 @@ function resetValidation(formElement, options) {
   });
   const submitButton = formElement.querySelector(options.submitButtonSelector);
   if (submitButton) {
-    switchSubmitButtonState(inputElements, submitButton, options, true);
+    resetSubmitButtonVisualState(submitButton, inactiveButtonClass);
+    submitButton.offsetWidth; //everything I tried wouldn't reset the button without this
   }
+}
+
+function resetSubmitButtonVisualState(submitButton, inactiveButtonClass) {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 enableValidation(config);
