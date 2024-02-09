@@ -2,10 +2,10 @@ function openModal(modalElement) {
   modalElement.addEventListener("mousedown", closeModalOnRemoteClick);
   document.addEventListener("keydown", closeModalByEsc);
   modalElement.classList.add("modal_opened");
-  const formElement = modalElement.querySelector(".modal__form");
-  if (formElement) {
-    resetValidation(formElement, config);
-  }
+  // const formElement = modalElement.querySelector(".modal__form");
+  // if (formElement) {
+  //   resetValidation(formElement, config);
+  // }
 }
 
 function closeModal(modalElement) {

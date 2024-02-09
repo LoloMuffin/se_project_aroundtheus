@@ -16,11 +16,11 @@ const switchSubmitButtonState = (
   { inactiveButtonClass }
 ) => {
   const formValid = checkFormValidity(inputElements);
-  if (formValid) {
+  if (!formValid) {
     disableSubmitButton(submitButton, inactiveButtonClass);
   } else {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
 };
 
@@ -81,6 +81,7 @@ function enableValidation(options) {
 }
 
 function resetValidation(formElement, options) {
+  formElement.reset();
   const { inputErrorClass, errorClass, inactiveButtonClass } = options;
   const inputElements = [
     ...formElement.querySelectorAll(options.inputSelector),
@@ -93,8 +94,8 @@ function resetValidation(formElement, options) {
 }
 
 function disableSubmitButton(submitButton, inactiveButtonClass) {
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 }
 
 enableValidation(config);

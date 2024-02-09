@@ -130,8 +130,18 @@ closeButtons.forEach((button) => {
 });
 
 profileEdit.addEventListener("click", () => {
-  profileNameInput.value = profileName.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  const formElement = profileEditModal.querySelector(".modal__form");
+  if (formElement) {
+    resetValidation(formElement, config);
+    profileNameInput.value = profileName.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
+    const inputElements = [
+      ...formElement.querySelectorAll(config.inputSelector),
+    ];
+    inputElements.forEach((inputElement) => {
+      inputElement.dispatchEvent(new Event("input"));
+    });
+  } //had to re-validate form since it's supposed to be populated when opened
   openModal(profileEditModal);
 });
 
@@ -145,7 +155,7 @@ profileEditModal
 
 cardAdd.addEventListener("click", () => {
   const formElement = cardAddModal.querySelector(".modal__form");
-  formElement.reset();
+  resetValidation(formElement, config);
   openModal(cardAddModal);
 });
 
