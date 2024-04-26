@@ -2,6 +2,9 @@ class Card {
   constructor(data, openFullImage) {
     this.data = data;
     this.openFullImage = openFullImage;
+    this.cardTemplate = document
+      .querySelector("#card-template")
+      .content.querySelector(".card");
     this.cardElement = this._getCardElement();
     this.cardImage = this.cardElement.querySelector(".card__image");
     this.cardText = this.cardElement.querySelector(".card__text");
@@ -14,10 +17,7 @@ class Card {
   }
 
   _getCardElement() {
-    const cardTemplate = document
-      .querySelector("#card-template")
-      .content.querySelector(".card");
-    return cardTemplate.cloneNode(true);
+    return this.cardTemplate.cloneNode(true);
   }
 
   _setEventListeners() {

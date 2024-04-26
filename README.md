@@ -1,4 +1,4 @@
-# Project 6: Around The U.S.
+# Project 7: Around The U.S.
 
 ### Overview
 
@@ -9,7 +9,7 @@
 
 **Intro**
 
-In this project, validation ensures that when users submit forms, the data is correct and reliable. It's an important step for making sure everything works smoothly.
+In this project, the entire focus will be on refactoring and using your new knowledge of classes to rewrite particular pieces of code. The file structure is updated as well.
 
 **Figma**
 
@@ -39,6 +39,8 @@ In this project, validation ensures that when users submit forms, the data is co
 - Cloning templates
 - "Delete" functionality
 - Form validation
+- Creating Javascript classes
+- Exporting and importing .js files to one another.
 
 ## Plan on improving the project
 
