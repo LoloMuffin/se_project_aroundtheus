@@ -52,6 +52,7 @@ const cardAdd = document.querySelector("#card-add");
 const cardTitleInput = cardForm.querySelector("#card-title-input");
 const cardUrlInput = cardForm.querySelector("#card-url-input");
 const cardAddModal = document.querySelector("#card-add-modal");
+const cardTemplate = document.querySelector("#card-template");
 
 const locationCards = document.querySelector(".location__cards");
 const modalImage = document.querySelector(".modal__image");
@@ -71,7 +72,7 @@ function enableValidation(config) {
 }
 
 function createCard(data) {
-  const card = new Card(data, openFullImage);
+  const card = new Card(data, openFullImage, cardTemplate);
   return card.getElement();
 }
 
@@ -83,14 +84,15 @@ function openFullImage(imageSrc, title) {
 }
 
 function openModal(modalElement) {
+  document.addEventListener("keydown", closeModalByEsc);
   modalElement.classList.add("modal_opened");
   modalElement.addEventListener("mousedown", closeModalOnRemoteClick);
-  document.addEventListener("keydown", closeModalByEsc);
 }
 
 function closeModal(modalElement) {
+  document.removeEventListener("keydown", closeModalByEsc);
+  modalElement.removeEventListener("mousedown", closeModalOnRemoteClick);
   modalElement.classList.remove("modal_opened");
-  modalElement.removeventListener("keydown", closeModalByEsc);
 }
 
 function closeModalByEsc(e) {
@@ -131,8 +133,7 @@ function submitProfileEdit(e) {
 }
 
 profileEdit.addEventListener("click", () => {
-  const formElement = profileEditModal.querySelector("form");
-  const formName = formElement?.getAttribute("name");
+  const formName = profileForm?.getAttribute("name");
   if (!formName) {
     console.error("Form name not found for profile edit.");
     return;
@@ -151,8 +152,7 @@ profileEdit.addEventListener("click", () => {
 profileForm.addEventListener("submit", submitProfileEdit);
 
 cardAdd.addEventListener("click", () => {
-  const formElement = cardAddModal.querySelector("form");
-  const formName = formElement?.getAttribute("name");
+  const formName = cardForm?.getAttribute("name");
   if (!formName) {
     console.error("Form name not found for card add.");
     return;

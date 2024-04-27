@@ -1,10 +1,8 @@
 class Card {
-  constructor(data, openFullImage) {
+  constructor(data, openFullImage, cardTemplate) {
     this.data = data;
     this.openFullImage = openFullImage;
-    this.cardTemplate = document
-      .querySelector("#card-template")
-      .content.querySelector(".card");
+    this.cardTemplate = cardTemplate.content.querySelector(".card");
     this.cardElement = this._getCardElement();
     this.cardImage = this.cardElement.querySelector(".card__image");
     this.cardText = this.cardElement.querySelector(".card__text");
