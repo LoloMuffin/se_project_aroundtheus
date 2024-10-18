@@ -16,6 +16,16 @@ class PopupWithForm extends Popup {
     return inputValues;
   }
 
+  getForm() {
+    return this._form;
+  }
+
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+
   setEventListeners() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -28,7 +38,6 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._form.reset();
   }
 }
 

@@ -1,3 +1,13 @@
+import {
+  initialCards,
+  config,
+  profileForm,
+  cardForm,
+  profileEdit,
+  cardAdd,
+  cardTemplate,
+} from "../components/constants.js";
+
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -5,53 +15,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit",
-  inactiveButtonClass: "modal__submit_disabled",
-  inputErrorClass: "modal__input_error",
-  errorClass: "modal__error_visible",
-};
-
-const profileForm = document.forms["profile-form"];
-const cardForm = document.forms["card-form"];
-const profileEdit = document.querySelector("#profile-edit");
-const profileNameInput = document.querySelector("#profile-name-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-
-const cardAdd = document.querySelector("#card-add");
-const cardTemplate = document.querySelector("#card-template");
 
 const formValidators = {};
 
@@ -104,8 +67,7 @@ profileEdit.addEventListener("click", () => {
     formValidators[formName].resetValidation();
   }
   const currentUserInfo = userInfo.getUserInfo();
-  profileNameInput.value = currentUserInfo.name;
-  profileDescriptionInput.value = currentUserInfo.description;
+  profileEditPopup.setInputValues(currentUserInfo);
   profileEditPopup.open();
 });
 
