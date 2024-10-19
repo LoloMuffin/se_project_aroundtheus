@@ -48,6 +48,10 @@ const cardAddPopup = new PopupWithForm("#card-add-modal", (formData) => {
   const cardData = { name: formData.location, link: formData.url };
   const newCardElement = createCard(cardData);
   cardSection.addItem(newCardElement);
+  const formName = cardForm.getAttribute("name");
+  if (formValidators[formName]) {
+    formValidators[formName].resetValidation();
+  }
 });
 
 const fullImagePopup = new PopupWithImage("#full-image-modal");
