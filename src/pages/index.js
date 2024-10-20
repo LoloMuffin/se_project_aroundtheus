@@ -50,7 +50,7 @@ const cardAddPopup = new PopupWithForm("#card-add-modal", (formData) => {
   cardSection.addItem(newCardElement);
   const formName = cardForm.getAttribute("name");
   if (formValidators[formName]) {
-    formValidators[formName].resetValidation();
+    formValidators[formName]._toggleSubmitButtonState();
   }
 });
 
@@ -78,7 +78,7 @@ profileEdit.addEventListener("click", () => {
 cardAdd.addEventListener("click", () => {
   const formName = cardForm.getAttribute("name");
   if (formValidators[formName]) {
-    formValidators[formName].resetValidation();
+    formValidators[formName]._toggleSubmitButtonState();
   }
   cardAddPopup.open();
 });
