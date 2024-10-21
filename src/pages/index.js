@@ -48,10 +48,12 @@ const cardAddPopup = new PopupWithForm("#card-add-modal", (formData) => {
   const cardData = { name: formData.location, link: formData.url };
   const newCardElement = createCard(cardData);
   cardSection.addItem(newCardElement);
-  const formName = cardForm.getAttribute("name");
-  if (formValidators[formName]) {
-    formValidators[formName]._toggleSubmitButtonState();
-  }
+  cardForm.reset();
+  cardAddPopup.close();
+  // const formName = cardForm.getAttribute("name");
+  // if (formValidators[formName]) {
+  //   formValidators[formName].toggleSubmitButtonState();
+  // }
 });
 
 const fullImagePopup = new PopupWithImage("#full-image-modal");
@@ -78,7 +80,7 @@ profileEdit.addEventListener("click", () => {
 cardAdd.addEventListener("click", () => {
   const formName = cardForm.getAttribute("name");
   if (formValidators[formName]) {
-    formValidators[formName]._toggleSubmitButtonState();
+    formValidators[formName].resetValidation();
   }
   cardAddPopup.open();
 });

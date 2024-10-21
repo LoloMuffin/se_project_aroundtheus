@@ -8,9 +8,15 @@ class FormValidator {
     this.submitButton = formElement.querySelector(config.submitButtonSelector);
   }
 
+  // enableValidation() {
+  //   this.form.addEventListener("submit", (e) => e.preventDefault());
+  //   this._setEventListeners();
+  // }
+
   enableValidation() {
     this.form.addEventListener("submit", (e) => e.preventDefault());
     this._setEventListeners();
+    this._toggleSubmitButtonState();
   }
 
   _setEventListeners() {
