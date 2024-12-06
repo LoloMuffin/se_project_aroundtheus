@@ -8,11 +8,6 @@ class FormValidator {
     this.submitButton = formElement.querySelector(config.submitButtonSelector);
   }
 
-  // enableValidation() {
-  //   this.form.addEventListener("submit", (e) => e.preventDefault());
-  //   this._setEventListeners();
-  // }
-
   enableValidation() {
     this.form.addEventListener("submit", (e) => e.preventDefault());
     this._setEventListeners();
@@ -37,7 +32,7 @@ class FormValidator {
   }
 
   _toggleSubmitButtonState() {
-    const formValid = this.inputElements.every((input) => input.validity.valid); // Check if all inputs are valid
+    const formValid = this.inputElements.every((input) => input.validity.valid);
     if (formValid) {
       this.submitButton.classList.remove(this.config.inactiveButtonClass);
       this.submitButton.disabled = false;
